@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE-Edge">
+	<title>Scientist VS &middot; Scientist</title>
+	<link rel="stylesheet" type="text/css" href="assets/styles/style.css">
+	<!-- local file version of bootstrap -->
+	<!-- <link rel="stylesheet" type="text/css" href="assets/styles/bootstrap/bootstrap.css"> -->
+
+	<!-- bootstrap CSS CDN -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+	<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+</head>
+<body>
+
+	<div class="container">
+		<h1 class="text-center mt-2">SCIENTIST vs SCIENTIST</h1>
+		<hr>
+		<div id="main">
+			<div class=row>
+				<div class="col-lg-6">
+					<h3 id="name1">player 1</h3>
+					<img class="images" id="p1Attack" src="assets/images/einstein.jpg">
+					<label for="life01">Life: </label>
+					<span id="life01" class="display-4">100</span>
+				</div>
+				<div class="col-lg-6">
+					<h3 id="name2">player 2</h3>
+					<img class="images" id="p2Attack" src="assets/images/tesla.jpg">
+					<label for="life02">Life: </label>
+					<span id="life02" class="display-4">100</span>
+				</div>
+			</div>
+			<hr>
+			<div class="row">
+				<div class="col-lg-4 offset-lg-2">
+					<button id="player01" class="btn btn-primary" disabled="true">Attack!</button>
+				</div>
+				<div class="col-lg-4 offset-lg-2">
+					<button id="player02" class="btn btn-danger" disabled="true">Attack!</button>
+				</div>
+			</div>
+			<div class="row text-center">
+				<div class="col-lg-12">
+					<button id="play" class="btn btn-info mb-4">Play</button>
+					<h4 id="result"></h4>
+				</div>
+			</div>
+		</div>
+			<div class="row text-center">
+				<div class="col-lg-12">
+					<button id="startButton" class="btn btn-warning mt-3">START</button>
+				</div>
+			</div>
+	</div>
+
+	<!-- jQuery -->
+	<script src="http://code.jquery.com/jquery-3.3.1.min.js"integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+	<!-- popper -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+	<!-- bootstrap js CDN -->
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+	<script type="text/javascript" src="assets/scripts/game2.js"></script>
+	<!-- <script type="text/javascript" src="assets/scripts/index.js"></script> -->
+</body>
+</html>
