@@ -49,3 +49,56 @@ body {
 	height: 300px;
 	width: 300px;
 }
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Press Start 2P', cursive;
+}
+
+body {
+	padding: 10px;
+}
+
+/* Ensure images fit within their col containers on mobile */
+.images {
+	width: 100%;
+	max-width: 250px;
+	height: auto;
+	display: block;
+	margin: 10px auto;
+	object-fit: contain;
+}
+
+/* Make start button responsive */
+#startButton {
+	width: 100%;
+	max-width: 280px;
+	height: 100px;
+	font-size: 1.2rem;
+	margin: 20px auto;
+}
+
+/* Typography scaling for mobile screens */
+h1 {
+	font-size: 1.5rem;
+}
+
+h3 {
+	font-size: 1rem;
+	text-align: center;
+}
+
+.display-4 {
+	font-size: 1.8rem;
+}
+
+#result {
+	font-size: 1rem;
+	margin-top: 15px;
+}
+
+#main {
+	display: none;
+}
