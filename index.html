@@ -1,73 +1,68 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="IE-Edge">
-	<title>Scientist VS &middot; Scientist</title>
-	<link rel="stylesheet" type="text/css" href="assets/styles/style.css">
-	<!-- local file version of bootstrap -->
-	<!-- <link rel="stylesheet" type="text/css" href="assets/styles/bootstrap/bootstrap.css"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Scientist VS Scientist</title>
 
-	<!-- bootstrap CSS CDN -->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-
+	<!-- Bootstrap 4 CDN -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="assets/styles/style.css">
 </head>
 <body>
 
-	<div class="container">
-		<h1 class="text-center mt-2">SCIENTIST vs SCIENTIST</h1>
+	<div class="container text-center">
+		<h1 class="mt-2">SCIENTIST vs SCIENTIST</h1>
 		<hr>
+
+		<div id="startButtonContainer" class="row">
+			<div class="col-12">
+				<button id="startButton" class="btn btn-warning">START</button>
+			</div>
+		</div>
+
 		<div id="main">
-			<div class=row>
-				<div class="col-lg-6">
-					<h3 id="name1">player 1</h3>
-					<img class="images" id="p1Attack" src="assets/images/einstein.jpg">
-					<label for="life01">Life: </label>
-					<span id="life01" class="display-4">100</span>
+			<div class="row align-items-center">
+				<div class="col-12 col-md-6 mb-3">
+					<h3 id="name1">Player 1</h3>
+					<img class="images img-fluid" id="p1Attack" src="assets/images/einstein.jpg" alt="Einstein">
+					<div>
+						<label for="life01">Life: </label>
+						<span id="life01" class="display-4">100</span>
+					</div>
+					<button id="player01" class="btn btn-primary btn-block my-2" disabled>Attack!</button>
 				</div>
-				<div class="col-lg-6">
-					<h3 id="name2">player 2</h3>
-					<img class="images" id="p2Attack" src="assets/images/tesla.jpg">
-					<label for="life02">Life: </label>
-					<span id="life02" class="display-4">100</span>
+
+				<div class="col-12 col-md-6 mb-3">
+					<h3 id="name2">Player 2</h3>
+					<img class="images img-fluid" id="p2Attack" src="assets/images/tesla.jpg" alt="Tesla">
+					<div>
+						<label for="life02">Life: </label>
+						<span id="life02" class="display-4">100</span>
+					</div>
+					<button id="player02" class="btn btn-danger btn-block my-2" disabled>Attack!</button>
 				</div>
 			</div>
+
 			<hr>
+
 			<div class="row">
-				<div class="col-lg-4 offset-lg-2">
-					<button id="player01" class="btn btn-primary" disabled="true">Attack!</button>
-				</div>
-				<div class="col-lg-4 offset-lg-2">
-					<button id="player02" class="btn btn-danger" disabled="true">Attack!</button>
-				</div>
-			</div>
-			<div class="row text-center">
-				<div class="col-lg-12">
-					<button id="play" class="btn btn-info mb-4">Play</button>
-					<h4 id="result"></h4>
+				<div class="col-12 my-2">
+					<button id="play" class="btn btn-info btn-lg">Roll / Play</button>
+					<h4 id="result" class="mt-3"></h4>
 				</div>
 			</div>
 		</div>
-			<div class="row text-center">
-				<div class="col-lg-12">
-					<button id="startButton" class="btn btn-warning mt-3">START</button>
-				</div>
-			</div>
 	</div>
 
-	<!-- jQuery -->
+	<!-- jQuery CDN -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	<!-- <script src="http://code.jquery.com/jquery-3.3.1.min.js"integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> --->
+	<!-- Popper & Bootstrap JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
 
-	<!-- popper -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-
-	<!-- bootstrap js CDN -->
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-
-	<script type="text/javascript" src="assets/scripts/game2.js"></script>
-	<!-- <script type="text/javascript" src="assets/scripts/index.js"></script> -->
+	<!-- Local Script -->
+	<script src="assets/scripts/game2.js"></script>
 </body>
 </html>
