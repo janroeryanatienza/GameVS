@@ -55,10 +55,10 @@ $("#play").click(() => {
 	$("#life02").css("color", "black");
 	$("#life01").css("color", "black");
 
-	let counter = 3;
+	let counter = 2;
 	$("#result").html(counter);
 
-	// Start 3-second timer
+	// Start 2-second timer
 	let countdownInterval = setInterval(() => {
 		counter--;
 		if (counter > 0) {
@@ -66,57 +66,53 @@ $("#play").click(() => {
 		} else {
 			clearInterval(countdownInterval);
 			
-			// Determine outcomes after countdown finishes
+			// Determine random choices
 			let player1 = getRandNumber2();
 			let player2 = getRandNumber2();
 
+			// Pre-assign hand images so both load simultaneously
+			let p1Src = "";
+			let p2Src = "";
+
+			if (player1 === 0) p1Src = "assets/images/scissors01.png";
+			else if (player1 === 1) p1Src = "assets/images/stone01.png";
+			else if (player1 === 2) p1Src = "assets/images/paper01.png";
+
+			if (player2 === 0) p2Src = "assets/images/scissors02.png";
+			else if (player2 === 1) p2Src = "assets/images/stone02.png";
+			else if (player2 === 2) p2Src = "assets/images/paper02.png";
+
+			// Instantly set both hand images together
+			$("#p1Attack").attr("src", p1Src);
+			$("#p2Attack").attr("src", p2Src);
+
+			// Determine turn winner & activate appropriate button
 			if (player1 === 1 && player2 === 0) {
 				$("#result").html("Player 1's turn!");
-				$("#p1Attack").attr("src", "assets/images/stone01.png");
-				$("#p2Attack").attr("src", "assets/images/scissors02.png");
 				disableButton1();
 			} else if (player2 === 1 && player1 === 0) {
 				$("#result").html("Player 2's turn!");
-				$("#p1Attack").attr("src", "assets/images/scissors01.png");
-				$("#p2Attack").attr("src", "assets/images/stone02.png");
 				disableButton2();
 			} else if (player1 === 0 && player2 === 2) {
 				$("#result").html("Player 1's turn!");
-				$("#p1Attack").attr("src", "assets/images/scissors01.png");
-				$("#p2Attack").attr("src", "assets/images/paper02.png");
 				disableButton1();
 			} else if (player2 === 0 && player1 === 2) {
 				$("#result").html("Player 2's turn!");
-				$("#p1Attack").attr("src", "assets/images/paper01.png");
-				$("#p2Attack").attr("src", "assets/images/scissors02.png");
 				disableButton2();
 			} else if (player1 === 2 && player2 === 1) {
 				$("#result").html("Player 1's turn!");
-				$("#p1Attack").attr("src", "assets/images/paper01.png");
-				$("#p2Attack").attr("src", "assets/images/stone02.png");
 				disableButton1();
 			} else if (player2 === 2 && player1 === 1) {
 				$("#result").html("Player 2's turn!");
-				$("#p1Attack").attr("src", "assets/images/stone01.png");
-				$("#p2Attack").attr("src", "assets/images/paper02.png");
 				disableButton2();
 			} else {
 				$("#result").html("DRAW! Roll again.");
-				if (player1 === 0) {
-					$("#p1Attack").attr("src", "assets/images/scissors01.png");
-					$("#p2Attack").attr("src", "assets/images/scissors02.png");
-				} else if (player1 === 1) {
-					$("#p1Attack").attr("src", "assets/images/stone01.png");
-					$("#p2Attack").attr("src", "assets/images/stone02.png");
-				} else {
-					$("#p1Attack").attr("src", "assets/images/paper01.png");
-					$("#p2Attack").attr("src", "assets/images/paper02.png");
-				}
 				disableAttackButtons();
 			}
 		}
 	}, 1000);
 });
+
 
 // Player 1 Attacks Player 2
 $("#player01").click(() => {
