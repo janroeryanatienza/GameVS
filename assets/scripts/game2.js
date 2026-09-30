@@ -3,10 +3,7 @@ let players = [
 	{ name: "player2", lifepoints: 100 }
 ];
 
-// Returns 0 to 49 for attack points
 const getRandNumber = () => Math.floor(Math.random() * 50);
-
-// Returns 0, 1, or 2 (0: Scissors, 1: Rock, 2: Paper)
 const getRandNumber2 = () => Math.floor(Math.random() * 3);
 
 const disableButton1 = () => {
@@ -33,6 +30,17 @@ const hideAllButtons = () => {
 	$("#play").hide(500);
 };
 
+// Helper function to show damage popup for 2 seconds
+const showDamagePopup = (elementId, damageAmount) => {
+	const $el = $(elementId);
+	$el.stop(true, true)
+	   .html("-" + damageAmount)
+	   .css({ display: "block", opacity: 1, top: "10%" })
+	   .animate({ top: "0%", opacity: 0 }, 2000, function () {
+		   $(this).css("display", "none");
+	   });
+};
+
 $("#play").click(() => {
 	let player1 = getRandNumber2();
 	let player2 = getRandNumber2();
@@ -40,7 +48,6 @@ $("#play").click(() => {
 	$("#life02").css("color", "black");
 	$("#life01").css("color", "black");
 
-	// 0 = scissors, 1 = rock, 2 = paper
 	if (player1 === 1 && player2 === 0) {
 		$("#result").html("Player 1's turn!");
 		$("#p1Attack").attr("src", "assets/images/stone01.png");
@@ -72,7 +79,6 @@ $("#play").click(() => {
 		$("#p2Attack").attr("src", "assets/images/paper02.png");
 		disableButton2();
 	} else {
-		// Handles all draw conditions (0-0, 1-1, 2-2)
 		$("#result").html("DRAW! Roll again.");
 		if (player1 === 0) {
 			$("#p1Attack").attr("src", "assets/images/scissors01.png");
@@ -88,9 +94,14 @@ $("#play").click(() => {
 	}
 });
 
+// Player 1 Attacks Player 2
 $("#player01").click(() => {
-	players[1].lifepoints -= getRandNumber();
+	let damage = getRandNumber();
+	players[1].lifepoints -= damage;
+	if (players[1].lifepoints < 0) players[1].lifepoints = 0;
+	
 	$("#life02").html(players[1].lifepoints);
+	showDamagePopup("#damageP2", damage);
 	disableAttackButtons();
 
 	if (players[1].lifepoints <= 0) {
@@ -110,9 +121,14 @@ $("#player01").click(() => {
 	}
 });
 
+// Player 2 Attacks Player 1
 $("#player02").click(() => {
-	players[0].lifepoints -= getRandNumber();
+	let damage = getRandNumber();
+	players[0].lifepoints -= damage;
+	if (players[0].lifepoints < 0) players[0].lifepoints = 0;
+
 	$("#life01").html(players[0].lifepoints);
+	showDamagePopup("#damageP1", damage);
 	disableAttackButtons();
 
 	if (players[0].lifepoints <= 0) {
