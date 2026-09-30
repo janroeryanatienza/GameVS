@@ -55,10 +55,13 @@ $("#play").click(() => {
 	$("#life02").css("color", "black");
 	$("#life01").css("color", "black");
 
+	// Temporarily hide or blank the hand images during the 2-second delay
+	$("#p1Attack, #p2Attack").css("visibility", "hidden");
+
 	let counter = 2;
 	$("#result").html(counter);
 
-	// Start 2-second timer
+	// Start 2-second countdown
 	let countdownInterval = setInterval(() => {
 		counter--;
 		if (counter > 0) {
@@ -70,7 +73,7 @@ $("#play").click(() => {
 			let player1 = getRandNumber2();
 			let player2 = getRandNumber2();
 
-			// Pre-assign hand images so both load simultaneously
+			// Pre-assign hand image sources
 			let p1Src = "";
 			let p2Src = "";
 
@@ -82,9 +85,10 @@ $("#play").click(() => {
 			else if (player2 === 1) p2Src = "assets/images/stone02.png";
 			else if (player2 === 2) p2Src = "assets/images/paper02.png";
 
-			// Instantly set both hand images together
+			// Set both image sources and reveal them simultaneously
 			$("#p1Attack").attr("src", p1Src);
 			$("#p2Attack").attr("src", p2Src);
+			$("#p1Attack, #p2Attack").css("visibility", "visible");
 
 			// Determine turn winner & activate appropriate button
 			if (player1 === 1 && player2 === 0) {
@@ -112,7 +116,6 @@ $("#play").click(() => {
 		}
 	}, 1000);
 });
-
 
 // Player 1 Attacks Player 2
 $("#player01").click(() => {
