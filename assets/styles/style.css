@@ -5,63 +5,21 @@
 	font-family: 'Press Start 2P', cursive;
 }
 
-
-#mainHeading {
-	color: darkblue;
-}
-
-.subHeading {
-	color: coral;
-}
-
-p {
-	font-family: sans-serif;
-	font-weight: 100;
-}
-
-body {
-	padding: 20px;
-}
-
-
-.putBorder {
-	border: 1px solid black;
-}
-
-.putPadding {
-	padding-left: 2px;
-}
-
-
-#btnhide1, #btnhide2, #btnhide3, #btnhide4, #btnhide5{
-	display: none;
-}
-
-.strike {
-	text-decoration: line-through;
-}
-
-#main {
-	display: none;
-}
-
-#startButton {
-	height: 300px;
-	width: 300px;
-}
-
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	font-family: 'Press Start 2P', cursive;
-}
-
 body {
 	padding: 10px;
 }
 
-/* Ensure images fit within their col containers on mobile */
+/* Gray styling for ALL disabled buttons */
+button:disabled,
+button[disabled] {
+	background-color: #6c757d !important;
+	border-color: #6c757d !important;
+	color: #d3d3d3 !important;
+	opacity: 0.65;
+	cursor: not-allowed;
+}
+
+/* Images sizing */
 .images {
 	width: 100%;
 	max-width: 250px;
@@ -71,7 +29,27 @@ body {
 	object-fit: contain;
 }
 
-/* Make start button responsive */
+.img-wrapper {
+	display: inline-block;
+	position: relative;
+}
+
+/* Floating Damage Popup */
+.damage-popup {
+	display: none;
+	position: absolute;
+	top: 10%;
+	left: 50%;
+	transform: translateX(-50%);
+	color: #ff0000;
+	font-size: 1.8rem;
+	font-weight: bold;
+	text-shadow: 2px 2px 0px #000;
+	z-index: 10;
+	pointer-events: none;
+}
+
+/* Start Button Responsive */
 #startButton {
 	width: 100%;
 	max-width: 280px;
@@ -80,7 +58,7 @@ body {
 	margin: 20px auto;
 }
 
-/* Typography scaling for mobile screens */
+/* Typography */
 h1 {
 	font-size: 1.5rem;
 }
