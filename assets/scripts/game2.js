@@ -32,11 +32,20 @@ const hideAllButtons = () => {
 
 // Helper function to show damage popup for 2 seconds
 const showDamagePopup = (elementId, damageAmount) => {
-	const $el = $(elementId);
+	const $el =$(elementId);
+	
+	// Check if damage is 20 or more
+	let popupContent = "";
+	if (damageAmount >= 20) {
+		popupContent = `<strong style="color: #ff2222; font-size: 1.2em; display: block; text-transform: uppercase;">CRITICAL!</strong> -${damageAmount}`;
+	} else {
+		popupContent = `-${damageAmount}`;
+	}
+
 	$el.stop(true, true)
-	   .html("-" + damageAmount)
+	   .html(popupContent)
 	   .css({ display: "block", opacity: 1, top: "10%" })
-	   .animate({ top: "0%", opacity: 0 }, 2000, function () {
+	   .animate({ top: "-10%", opacity: 0 }, 2000, function () {
 		   $(this).css("display", "none");
 	   });
 };
