@@ -28,13 +28,12 @@ const hideAllButtons = () => {
 	$("#player01").hide(500);
 	$("#player02").hide(500);
 	$("#play").hide(500);
+	$("#reset").show(500); // Show Play Again button when game ends
 };
 
-// Helper function to show damage popup for 2 seconds
+// Helper function to show damage popup
 const showDamagePopup = (elementId, damageAmount) => {
 	const $el =$(elementId);
-	
-	// Check if damage is 20 or more
 	let popupContent = "";
 	if (damageAmount >= 20) {
 		popupContent = `<strong style="color: #ff2222; font-size: 1.2em; display: block; text-transform: uppercase;">CRITICAL!</strong> -${damageAmount}`;
@@ -155,6 +154,28 @@ $("#player02").click(() => {
 		$("#life01").css("color", "red");
 		$("#life02").css("color", "green");
 	}
+});
+
+// Reset Game State
+$("#reset").click(() => {
+	players[0].lifepoints = 100;
+	players[1].lifepoints = 100;
+
+	$("#life01").html(100).css("color", "black");
+	$("#life02").html(100).css("color", "black");
+
+	$("#name1").html("Player 1");
+	$("#name2").html("Player 2");
+
+	$("#p1Attack").attr("src", "assets/images/einstein.jpg");
+	$("#p2Attack").attr("src", "assets/images/tesla.jpg");
+
+	$("#result").html("");
+
+	$("#player01").show().prop("disabled", true);
+	$("#player02").show().prop("disabled", true);
+	$("#play").show().prop("disabled", false);
+	$("#reset").hide();
 });
 
 $("#startButton").click(() => {
