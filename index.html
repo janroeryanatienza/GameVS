@@ -24,9 +24,13 @@
 
 		<div id="main">
 			<div class="row align-items-center">
-				<div class="col-12 col-md-6 mb-3">
+				<!-- Player 1 -->
+				<div class="col-12 col-md-6 mb-3 position-relative">
 					<h3 id="name1">Player 1</h3>
-					<img class="images img-fluid" id="p1Attack" src="assets/images/einstein.jpg" alt="Einstein">
+					<div class="img-wrapper position-relative">
+						<span id="damageP1" class="damage-popup"></span>
+						<img class="images img-fluid" id="p1Attack" src="assets/images/einstein.jpg" alt="Einstein">
+					</div>
 					<div>
 						<label for="life01">Life: </label>
 						<span id="life01" class="display-4">100</span>
@@ -34,9 +38,13 @@
 					<button id="player01" class="btn btn-primary btn-block my-2" disabled>Attack!</button>
 				</div>
 
-				<div class="col-12 col-md-6 mb-3">
+				<!-- Player 2 -->
+				<div class="col-12 col-md-6 mb-3 position-relative">
 					<h3 id="name2">Player 2</h3>
-					<img class="images img-fluid" id="p2Attack" src="assets/images/tesla.jpg" alt="Tesla">
+					<div class="img-wrapper position-relative">
+						<span id="damageP2" class="damage-popup"></span>
+						<img class="images img-fluid" id="p2Attack" src="assets/images/tesla.jpg" alt="Tesla">
+					</div>
 					<div>
 						<label for="life02">Life: </label>
 						<span id="life02" class="display-4">100</span>
